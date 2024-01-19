@@ -13,7 +13,9 @@ const io = new Server(server,{
         methods:["GET","POST"],
     },
 })
-
+app.get('/',(req,res)=>{
+    res.send("Helloo Its Working")
+})
 io.on("connection",(socket)=>{
     console.log(`User Connected:${socket.id}`);
 
