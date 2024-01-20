@@ -6,11 +6,9 @@ const io=require('socket.io')(server,{
     }
 })
 const PORT=7000||process.env.PORT
-
 app.get('/',(req,res)=>{
     res.send("<h1>hlooo gyssss</h1>")
 })
-let users=[]
 io.on("connection",(socket)=>{
         console.log(`User Connected:${socket.id}`);
         socket.on("join_room",(id)=>{
@@ -26,7 +24,6 @@ io.on("connection",(socket)=>{
     
         socket.on("disconnect",()=>{
             console.log("User Disconnected!",socket.id);
-            users=[]
         })
     })
 
